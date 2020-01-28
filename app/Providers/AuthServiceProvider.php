@@ -25,6 +25,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //チームリーダーのみ許可する
+        Gate::define('leader-only',function($user,$team){
+
+            return($user->id === $team->leader_id );
+        });
     }
 }

@@ -32,6 +32,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
+    //Teamとの多対多リレーション
+    public function teams(){
+        return $this->belongsToMany('App\Team');
+    }
+
 
 
 
